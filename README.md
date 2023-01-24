@@ -1,5 +1,5 @@
 # Projektne faze
-- [ ] - Opis projekta
+- [x] - Opis projekta
 - [ ] - Početna struktura aplikacije
 - [ ] - Prototip
 - [ ] - Konzultacije
@@ -8,12 +8,12 @@
 
 # Opis projekta
 ## Kratki opis
-Ovdje ide opis projekta
+Za projekt ću napraviti mobilnu aplikaciju koja služi za unos i pregled ponuda za posao u kafićima. Unositi će se: ime kafića, grad gdje se kafić nalazi, satnica, mjesto za koje se nudi posao (npr. konobarica) i slično. Na početnome ekranu će biti kratke upute o samoj aplikaciji (za šta aplikacija služi i slično) te će biti dva bottuna (jedan bottun za unos ponude, a drugi bottun za pregled dosadašnjih unesenih ponuda). Na jednome ekranu će se moći unositi ponude za posao u kafićima, a na jednome ekranu će se moći vidjeti sve dosadašnje unesene promjene te pritiskom na neku će se moći vidjeti njeni detalji i slično. 
 
 ## Popis funkcionalnosti
-1. a
-2. b
-3. c
+1. unos novih ponuda za posao u kafićima
+2. pregled detalja unesenih ponuda za posao u kafićima
+3. izdvajanje ponuda po nečemu (najvjerovatnije po gradu ili po zainteresiranosti u ponudu za posao) 
 
 
 ## UPUTE
