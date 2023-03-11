@@ -1,21 +1,43 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import * as React from 'react';
+import {
+  View,
+  Text,
+  Button} from 'react-native';
+  
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {Entypo} from '@expo/vector-icons';
+import Naslovna from './ekrani/Naslovna';
+import Pregled from './ekrani/Pregled';
+import Detalji from './ekrani/Detalji';
+import Unos from './ekrani/Unos';
+const Stack=createNativeStackNavigator();
 
-export default function App() {
+function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Naslovna stranica" component={Naslovna} />
+
+        <Stack.Screen name="Pregled ponuda" component={Pregled}
+          options={({route, navigation })=>{
+            return {headerRight:()=>{
+                return(
+                  <Entypo onPress={()=>navigation.navigate('Unos nove ponude')} name="new-message"  size={20}/>);},};}}/>
+
+        <Stack.Screen name="Detalji ponude" component={Detalji}
+          options={({route,navigation })=>{
+            return{headerRight:()=>{
+                return(
+                  <Entypo onPress={()=>navigation.navigate('Naslovna stranica')} name="home" size={20}/>);},};}}/>
+
+        <Stack.Screen name="Unos nove ponude" component={Unos} 
+           options={({route,navigation })=>{
+            return{headerRight:()=>{
+                return(
+                  <Entypo onPress={()=>navigation.navigate('Pregled ponuda')} name="magnifying-glass" size={20}/>);},};}}/>
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;
