@@ -7,7 +7,7 @@ import {
 
 const Tipka = (props) => {
   return (
-    <TouchableOpacity onPress={props.onPress} style={stil.dodir}>
+    <TouchableOpacity onPress={props.onPress}>
       <View style={stil.tipka}>
         <Text style={stil.tekst}>{props.children}</Text>
       </View>
@@ -27,10 +27,9 @@ const stil = StyleSheet.create({
     alignItems:'center',
     backgroundColor:'grey',
     marginTop:20,
-  },
-  dodir: {
-    alignItems:'center'
-  },
+    flexDirection: 'row',
+    textAlign: 'center',
+  }
 });
 
 export default Tipka;
