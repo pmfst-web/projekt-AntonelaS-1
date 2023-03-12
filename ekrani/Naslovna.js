@@ -21,9 +21,8 @@ const Naslovna = ({props, navigation}) => {
       <Text style={stil.upute_tekst}>
         {'Ako želiš pronaći posao u kafiću ili ako želiš ponuditi posao u kafiću koji nitko neće moći odbiti onda je ovo stranica za tebe!!!'}
       </Text>
-      <View>
+      <View style={stil.tipke}>
         <Tipka onPress={() => navigation.navigate("Pregled ponuda")}>Pregled ponuda</Tipka>
-
         <Tipka onPress={() => navigation.navigate("Unos nove ponude")}>Unos ponude</Tipka>
       </View>
     </View>
@@ -38,7 +37,6 @@ const stil = StyleSheet.create({
   },
   upute_naslov: {
     color: 'black',
-    padding: 20,
     fontSize: 20,
     textAlign: 'center',
     fontWeight: 'bold'
@@ -48,6 +46,9 @@ const stil = StyleSheet.create({
     padding: 20,
     fontSize: 18,
     textAlign: 'center'
+  },
+  tipke: {
+    flexDirection: 'row'
   }
 });
 
