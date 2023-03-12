@@ -24,7 +24,7 @@ const Detalji = ({route, navigation}) => {
 
     <Text style={stil.opis}>5. Odabrani kafić traži djelatnika(icu) za rad kao <Text style={{fontWeight:"bold"}}>{kafic.trazeno_mjesto}<Text>.</Text></Text></Text>
 
-    <Text style={stil.opis}>6. Broj djelatnika(ica) koje odabrani kafić traži je <Text style={{fontWeight:"bold"}}>{kafic.trazeno_mjesto}<Text>.</Text></Text></Text>
+    <Text style={stil.opis}>6. Broj djelatnika(ica) koje odabrani kafić traži je <Text style={{fontWeight:"bold"}}>{kafic.broj}<Text>.</Text></Text></Text>
     </View>
   );
 };
