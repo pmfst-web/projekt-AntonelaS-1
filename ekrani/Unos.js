@@ -37,7 +37,7 @@ const Unos = () => {
       mjesto === '' ||
       broj < 1
     ) {
-      return;
+      return alert `Greška: Ime, grad i mjesto ne smiju biti prazni, satnica mora biti minimalno 4.38€ te broj traženih mjesta mora biti minimalno 1!!! Pokušajte ponovno!`;
     } else {
       const novi = new Kafic(KAFICI.length, ime, grad, satnica, mjesto, broj);
       KAFICI.push(novi);
