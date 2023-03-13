@@ -11,3 +11,7 @@ Dodane osnovne funkcionalnosti projekta poput: naslovnog (tj. početnog ekrana),
 ## 12.03.2023.
 ### Kratki opis promjena
 Napravljen ekran za unos koji sada ispravno radi. Ispravak greškice prilikom ispisa detalja kafića (za broj radnih mjesta koje kafić traži). Mala modifikacija kod stilova na ekranima. 
+
+## 13.03.2023.
+### Kratki opis promjena
+Dodane opcije za brisanje i uređivanje ponuda (može se urediti broj traženih mjesta).
