@@ -15,3 +15,4 @@ Napravljen ekran za unos koji sada ispravno radi. Ispravak greškice prilikom is
 ## 13.03.2023.
 ### Kratki opis promjena
 Dodane opcije za brisanje i uređivanje ponuda (može se urediti broj traženih mjesta).
+Dodan alert prozor koji se pojavljuje kada se pokuša unijeti nepravilna ponuda.
