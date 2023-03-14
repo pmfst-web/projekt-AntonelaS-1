@@ -4,7 +4,7 @@ import { View, Text, StyleSheet, TextInput } from 'react-native';
 import Kafic from '../model/kafic';
 import { KAFICI } from '../podatci/pocetni_podatci';
 
-import Tipka from '../components/Tipka'
+import Tipka from '../components/Tipka';
 
 const Unos = () => {
   const [ime, postaviIme] = useState('');
@@ -37,7 +37,7 @@ const Unos = () => {
       mjesto === '' ||
       broj < 1
     ) {
-      return alert `Greška: Ime, grad i mjesto ne smiju biti prazni, satnica mora biti minimalno 4.38€ te broj traženih mjesta mora biti minimalno 1!!! Pokušajte ponovno!`;
+      return alert`Greška: Ime, grad i mjesto ne smiju biti prazni, satnica mora biti minimalno 4.38€ te broj traženih mjesta mora biti minimalno 1!!! Pokušajte ponovno!`;
     } else {
       const novi = new Kafic(KAFICI.length, ime, grad, satnica, mjesto, broj);
       KAFICI.push(novi);
@@ -58,11 +58,7 @@ const Unos = () => {
 
       <View>
         <Text style={{ color: 'black' }}>Grad:</Text>
-        <TextInput
-          style={stil.tekst}
-          value={grad}
-          onChangeText={changeGrad}
-        />
+        <TextInput style={stil.tekst} value={grad} onChangeText={changeGrad} />
       </View>
 
       <View>
@@ -85,15 +81,10 @@ const Unos = () => {
 
       <View>
         <Text style={{ color: 'black' }}>Broj potrebnih djelatnika(ica):</Text>
-        <TextInput
-          style={stil.tekst}
-          value={broj}
-          onChangeText={changeBroj}
-        />
+        <TextInput style={stil.tekst} value={broj} onChangeText={changeBroj} />
       </View>
-      
+
       <Tipka onPress={dodajNovi}>Dodaj novu ponudu</Tipka>
-      
     </View>
   );
 };
