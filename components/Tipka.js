@@ -1,9 +1,5 @@
 import React from 'react';
-import {
-  Text, 
-  View, 
-  StyleSheet, 
-  TouchableOpacity} from 'react-native';
+import { Text, View, StyleSheet, TouchableOpacity } from 'react-native';
 
 const Tipka = (props) => {
   return (
@@ -17,19 +13,19 @@ const Tipka = (props) => {
 
 const stil = StyleSheet.create({
   tekst: {
-    color:'white',
-    fontWeight:'bold',
-    alignItems:'center'
+    color: 'white',
+    fontWeight: 'bold',
+    alignItems: 'center',
   },
   tipka: {
-    padding:5,
-    width:80,
-    alignItems:'center',
-    backgroundColor:'grey',
-    marginTop:20,
+    padding: 5,
+    width: 80,
+    alignItems: 'center',
+    backgroundColor: 'grey',
+    marginTop: 20,
     flexDirection: 'row',
     textAlign: 'center',
-  }
+  },
 });
 
 export default Tipka;
