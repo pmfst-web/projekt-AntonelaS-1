@@ -3,6 +3,8 @@ import { View, Text, StyleSheet } from 'react-native';
 
 import { KAFICI } from '../podatci/pocetni_podatci';
 
+import { FAVORITI } from '../podatci/favoriti';
+
 import Tipka from '../components/Tipka';
 
 const Detalji = ({ route, navigation }) => {
@@ -11,6 +13,9 @@ const Detalji = ({ route, navigation }) => {
 
   const obrisi = () => {
     KAFICI.pop(kafic.id);
+    if (kafic.id in FAVORITI) {
+      FAVORITI.pop(kafic.id);
+    }
     navigation.navigate('Naslovna stranica');
   };
 
@@ -19,7 +24,27 @@ const Detalji = ({ route, navigation }) => {
       `Unesite novi broj trazenih mjesta za ${kafic.ime_kafica}`
     );
     kafic.broj = noviBroj;
-    navigation.navigate("Detalji ponude", {brojId: kafic.id});
+    navigation.navigate('Detalji ponude', { brojId: kafic.id });
+  };
+
+  const makni_iz_favorita = () => {
+    navigation.navigate('Moji favoriti');
+    if (kafic.id in FAVORITI) {
+      FAVORITI.pop(kafic);
+    } else {
+      alert(
+        `Ovaj kafić se NE nalazi u Vašim favoritima pa ga NE možete ukloniti iz Vaših favorita!`
+      );
+    }
+  };
+
+  const dodaj_u_favorite = () => {
+    navigation.navigate('Moji favoriti');
+    if (kafic.id in FAVORITI) {
+      alert(`Ovaj kafić ste već spremili u favorite!`);
+    } else {
+      FAVORITI.push(kafic);
+    }
   };
 
   return (
@@ -79,6 +104,8 @@ const Detalji = ({ route, navigation }) => {
 
       <View style={stil.tipke}>
         <Tipka onPress={obrisi}> Obriši ponudu</Tipka>
+        <Tipka onPress={dodaj_u_favorite}>Dodaj u favorite</Tipka>
+        <Tipka onPress={makni_iz_favorita}>Ukloni iz favorita</Tipka>
         <Tipka onPress={uredi}> Uredi ponudu</Tipka>
       </View>
     </View>
@@ -96,8 +123,8 @@ const stil = StyleSheet.create({
     padding: 10,
   },
   tipke: {
-    flexDirection: 'row'
-  }
+    flexDirection: 'row',
+  },
 });
 
 export default Detalji;
