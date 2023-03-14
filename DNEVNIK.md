@@ -16,3 +16,8 @@ Napravljen ekran za unos koji sada ispravno radi. Ispravak greškice prilikom is
 ### Kratki opis promjena
 Dodane opcije za brisanje i uređivanje ponuda (može se urediti broj traženih mjesta).
 Dodan alert prozor koji se pojavljuje kada se pokuša unijeti nepravilna ponuda.
+
+## 14.03.2023.
+### Kratki opis promjena
+Napravljen dio koji se odnosi na favorite (napravljen ekran na kojemu se mogu vidjeti favoriti, napravljena mogućnost dodavanja ponuda u favorite, napravljena mogućnost uklananja ponuda iz favorita).
+
