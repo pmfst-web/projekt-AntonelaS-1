@@ -4,20 +4,23 @@ import {
   Text,
   StyleSheet,
   FlatList,
-  TouchableOpacity} from 'react-native';
+  TouchableOpacity,
+} from 'react-native';
 
-import {Foundation} from '@expo/vector-icons'; 
+import { Foundation } from '@expo/vector-icons';
 
-import {KAFICI} from '../podatci/pocetni_podatci';
+import { KAFICI } from '../podatci/pocetni_podatci';
 
-const Pregled = ({navigation}) => {
+const Pregled = ({ navigation }) => {
   const prikaz_kafica = (podatci) => {
     return (
       <TouchableOpacity
-      onPress={() => navigation.navigate("Detalji ponude",{brojId: podatci.item.id})} 
-      style={stil.popis}>
-      <Text>{podatci.item.ime_kafica}</Text>
-      <Foundation name="magnifying-glass" size={20}/>
+        onPress={() =>
+          navigation.navigate('Detalji ponude', { brojId: podatci.item.id })
+        }
+        style={stil.popis}>
+        <Text>{podatci.item.ime_kafica}</Text>
+        <Foundation name="magnifying-glass" size={20} />
       </TouchableOpacity>
     );
   };
@@ -35,20 +38,20 @@ const stil = StyleSheet.create({
     justifyContent: 'center',
   },
   popis: {
-    padding:20,
+    padding: 20,
 
     width: 150,
 
-    marginHorizontal:10,
-    marginVertical:10,
+    marginHorizontal: 10,
+    marginVertical: 10,
 
-    borderColor:"black",
-    borderWidth:1,
-    borderRadius:5,
-    
-    flexDirection: "row",
-    justifyContent: "space-between"
-  }
+    borderColor: 'black',
+    borderWidth: 1,
+    borderRadius: 5,
+
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
 });
 
 export default Pregled;
