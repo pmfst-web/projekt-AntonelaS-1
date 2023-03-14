@@ -33,7 +33,7 @@ const Detalji = ({ route, navigation }) => {
       FAVORITI.pop(kafic);
     } else {
       alert(
-        `Ovaj kafić se NE nalazi u Vašim favoritima pa ga NE možete ukloniti iz Vaših favorita!`
+        `Ova ponuda se NE nalazi u Vašim favoritima pa je NE možete ukloniti iz Vaših favorita!`
       );
     }
   };
@@ -41,7 +41,7 @@ const Detalji = ({ route, navigation }) => {
   const dodaj_u_favorite = () => {
     navigation.navigate('Moji favoriti');
     if (kafic.id in FAVORITI) {
-      alert(`Ovaj kafić ste već spremili u favorite!`);
+      alert(`Ovu ponudu ste već dodali u favorite!`);
     } else {
       FAVORITI.push(kafic);
     }
