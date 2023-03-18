@@ -1,56 +1,57 @@
 import * as React from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  FlatList,
-  TouchableOpacity,
-} from 'react-native';
+import { View, StyleSheet, FlatList } from 'react-native';
 
-import { Foundation } from '@expo/vector-icons';
+import ListaElement from '../components/ListaElement';
 
-import { KAFICI } from '../podatci/pocetni_podatci';
+import { useSelector } from 'react-redux';
 
-const Pregled = ({ navigation }) => {
-  const prikaz_kafica = (podatci) => {
+const Pregled = ({ route, navigation }) => {
+  const prikaz = route.params.prikaz;
+  const ponudePregled = useSelector((state) => {
+    if (prikaz === 'svi') {
+      return state.ponude.filterPonude;
+    } else if (prikaz === 'fav') {
+      return state.ponude.favoritPonude;
+    }
+    return null;
+  });
+
+  const prikazElelementa = (podaci) => {
     return (
-      <TouchableOpacity
+      <ListaElement
         onPress={() =>
-          navigation.navigate('Detalji ponude', { brojId: podatci.item.id })
+          navigation.navigate('Detalji ponude', { id: podaci.item.id })
         }
-        style={stil.popis}>
-        <Text>{podatci.item.ime_kafica}</Text>
-        <Foundation name="magnifying-glass" size={20} />
-      </TouchableOpacity>
+        natpis={podaci.item.ime}
+      />
     );
   };
+
   return (
     <View style={stil.ekran}>
-      <FlatList data={KAFICI} renderItem={prikaz_kafica} />
+      <View style={stil.lista}>
+        <FlatList
+          showsVerticalScrollIndicator={false}
+          style={{ margin: 5 }}
+          data={ponudePregled}
+          renderItem={prikazElelementa}
+          numColumns={1}
+        />
+      </View>
     </View>
   );
 };
 
 const stil = StyleSheet.create({
   ekran: {
+    width: '100%',
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
   },
-  popis: {
-    padding: 20,
-
-    width: 150,
-
-    marginHorizontal: 10,
-    marginVertical: 10,
-
-    borderColor: 'black',
-    borderWidth: 1,
-    borderRadius: 5,
-
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+  lista: {
+    flex: 1,
+    alignItems: 'center',
   },
 });
 
