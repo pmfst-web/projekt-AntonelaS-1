@@ -1,112 +1,67 @@
-import * as React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import React, { useCallback, useEffect } from 'react';
 
-import { KAFICI } from '../podatci/pocetni_podatci';
+import { useSelector, useDispatch } from 'react-redux';
 
-import { FAVORITI } from '../podatci/favoriti';
+import { View, Text, StyleSheet, Button } from 'react-native';
 
-import Tipka from '../components/Tipka';
+import { promjenaFavorita } from '../store/actions/ponude';
 
 const Detalji = ({ route, navigation }) => {
-  const { brojId } = route.params;
-  const kafic = KAFICI.find((item) => item.id === brojId);
+  const idPonude = Number(route.params.id);
+  const svePonude = useSelector((state) => state.ponude.ponude);
+  const ponuda = svePonude.find((p) => p.id === idPonude);
 
-  const obrisi = () => {
-    KAFICI.pop(kafic.id);
-    if (kafic.id in FAVORITI) {
-      FAVORITI.pop(kafic.id);
-    }
-    navigation.navigate('Naslovna stranica');
-  };
+  const dispatch = useDispatch();
 
-  const uredi = () => {
-    let noviBroj = prompt(
-      `Unesite novi broj trazenih mjesta za ${kafic.ime_kafica}`
-    );
-    kafic.broj = noviBroj;
-    navigation.navigate('Detalji ponude', { brojId: kafic.id });
-  };
-
-  const makni_iz_favorita = () => {
-    navigation.navigate('Moji favoriti');
-    if (kafic.id in FAVORITI) {
-      FAVORITI.pop(kafic);
-    } else {
-      alert(
-        `Ova ponuda se NE nalazi u Vašim favoritima pa je NE možete ukloniti iz Vaših favorita!`
-      );
-    }
-  };
-
-  const dodaj_u_favorite = () => {
-    navigation.navigate('Moji favoriti');
-    if (kafic.id in FAVORITI) {
-      alert(`Ovu ponudu ste već dodali u favorite!`);
-    } else {
-      FAVORITI.push(kafic);
-    }
+  const akcijaFavorit = () => {
+    dispatch(promjenaFavorita(idPonude));
+    navigation.navigate('Pregled ponuda');
   };
 
   return (
     <View style={stil.ekran}>
-      <Text>
-        KAFIĆ ČIJE DETALJE GLEDATE JE {kafic.ime_kafica}
-        <Text>.</Text>
-      </Text>
+      <View style={stil.tablica}>
+        <View>
+          <View>
+            <Text>ID ponude je {ponuda.id}</Text>
+          </View>
+        </View>
 
-      <Text style={stil.opis}>
-        1. ID odabranog kafića je{' '}
-        <Text style={{ fontWeight: 'bold' }}>
-          {kafic.id}
-          <Text>.</Text>
-        </Text>
-      </Text>
+        <View>
+          <View>
+            <Text>Ime kafića je {ponuda.ime}</Text>
+          </View>
+        </View>
 
-      <Text style={stil.opis}>
-        2. Ime odabranog kafića je{' '}
-        <Text style={{ fontWeight: 'bold' }}>
-          {kafic.ime_kafica}
-          <Text>.</Text>
-        </Text>
-      </Text>
+        <View>
+          <View>
+            <Text>Mjesto u kojem se kafić nalazi je {ponuda.mjesto}</Text>
+          </View>
+        </View>
 
-      <Text style={stil.opis}>
-        3. Grad u kojem se odabrani kafić nalazi je{' '}
-        <Text style={{ fontWeight: 'bold' }}>
-          {kafic.grad}
-          <Text>.</Text>
-        </Text>
-      </Text>
+        <View>
+          <View>
+            <Text>Satnica (h/euro) koja se nudi iznosi {ponuda.satnica}</Text>
+          </View>
+        </View>
 
-      <Text style={stil.opis}>
-        4. Satnica koja se nudi u € (u odabranom kafiću) iznosi{' '}
-        <Text style={{ fontWeight: 'bold' }}>
-          {kafic.satnica}
-          <Text>.</Text>
-        </Text>
-      </Text>
+        <View>
+          <View>
+            <Text>Pozicija koja se traži je {ponuda.pozicija}</Text>
+          </View>
+        </View>
 
-      <Text style={stil.opis}>
-        5. Odabrani kafić traži djelatnika(icu) za rad kao{' '}
-        <Text style={{ fontWeight: 'bold' }}>
-          {kafic.trazeno_mjesto}
-          <Text>.</Text>
-        </Text>
-      </Text>
+        <View>
+          <View>
+            <Text>Broj traženih djelatnika je {ponuda.broj}</Text>
+          </View>
+        </View>
 
-      <Text style={stil.opis}>
-        6. Broj djelatnika(ica) koje odabrani kafić traži je{' '}
-        <Text style={{ fontWeight: 'bold' }}>
-          {kafic.broj}
-          <Text>.</Text>
-        </Text>
-      </Text>
-
-      <View style={stil.tipke}>
-        <Tipka onPress={obrisi}> Obriši ponudu</Tipka>
-        <Tipka onPress={dodaj_u_favorite}>Dodaj u favorite</Tipka>
-        <Tipka onPress={makni_iz_favorita}>Ukloni iz favorita</Tipka>
-        <Tipka onPress={uredi}> Uredi ponudu</Tipka>
+        <View>
+          <View>
+            <Button title="Promjena favorita" onPress={akcijaFavorit} />
+          </View>
+        </View>
       </View>
     </View>
   );
@@ -116,14 +71,11 @@ const stil = StyleSheet.create({
   ekran: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'space-evenly',
+    justifyContent: 'center',
   },
-  opis: {
-    color: 'black',
-    padding: 10,
-  },
-  tipke: {
-    flexDirection: 'row',
+  tablica: {
+    width: '80%',
+    flex: 1,
   },
 });
 
