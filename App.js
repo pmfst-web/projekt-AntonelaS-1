@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 
-import { 
-  View, 
-  TouchableOpacity} from 'react-native';
+import { View, TouchableOpacity } from 'react-native';
 
 import { PONUDE } from './podaci/pocetni_podaci';
 
@@ -34,12 +32,12 @@ const tabEkrani = () => {
       <Tab.Screen
         name="Sve ponude"
         component={Pregled}
-        initialParams={{prikaz: 'svi'}}
+        initialParams={{ prikaz: 'svi' }}
       />
       <Tab.Screen
         name="Moji favoriti"
         component={Pregled}
-        initialParams={{prikaz: 'fav'}}
+        initialParams={{ prikaz: 'fav' }}
       />
     </Tab.Navigator>
   );
@@ -74,10 +72,7 @@ function App() {
                     <TouchableOpacity
                       onPress={() => navigation.navigate('Unos nove ponude')}>
                       <View>
-                        <MaterialIcons
-                          name="add"
-                          size={26}
-                        />
+                        <MaterialIcons name="add" size={26} />
                       </View>
                     </TouchableOpacity>
                   );
@@ -98,10 +93,7 @@ function App() {
                     <TouchableOpacity
                       onPress={() => navigation.navigate('Naslovna stranica')}>
                       <View>
-                        <MaterialIcons
-                          name="home"
-                          size={26}
-                        />
+                        <MaterialIcons name="home" size={26} />
                       </View>
                     </TouchableOpacity>
                   );
@@ -110,22 +102,22 @@ function App() {
             }}
           />
           <Stack.Screen
-          name="Unos nove ponude"
-          component={Unos}
-          options={({ route, navigation }) => {
-            return {
-              headerRight: () => {
-                return (
-                  <Entypo
-                    onPress={() => navigation.navigate('Pregled ponuda')}
-                    name="list"
-                    size={20}
-                  />
-                );
-              },
-            };
-          }}
-        />
+            name="Unos nove ponude"
+            component={Unos}
+            options={({ route, navigation }) => {
+              return {
+                headerRight: () => {
+                  return (
+                    <Entypo
+                      onPress={() => navigation.navigate('Pregled ponuda')}
+                      name="list"
+                      size={20}
+                    />
+                  );
+                },
+              };
+            }}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>
