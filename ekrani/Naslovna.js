@@ -1,39 +1,51 @@
 import * as React from 'react';
-import { View, StyleSheet, Text, Image } from 'react-native';
+import { View, StyleSheet, Image, ScrollView, Text } from 'react-native';
 
 import Tipka from '../components/Tipka';
 
-import slika from '../assets/kafici.JPG';
-
-const Naslovna = ({ props, navigation }) => {
+const Naslovna = ({ navigation }) => {
   return (
-    <View style={stil.ekran}>
-      <Image source={slika} style={{ width: 150, height: 150 }} />
-
-      <Text style={stil.upute_naslov}>{'UPUTE: '}</Text>
-      <Text style={stil.upute_tekst}>
-        {
-          'Ako želiš pronaći posao u kafiću ili ako želiš ponuditi posao u kafiću koji nitko neće moći odbiti onda je ovo stranica za tebe!!!'
-        }
-      </Text>
-      <View style={stil.tipke}>
-        <Tipka onPress={() => navigation.navigate('Pregled ponuda')}>
-          Pregled ponuda
-        </Tipka>
-        <Tipka onPress={() => navigation.navigate('Moji favoriti')}>
-          Moji favoriti
-        </Tipka>
-        <Tipka onPress={() => navigation.navigate('Unos nove ponude')}>
-          Unos ponude
-        </Tipka>
+    <ScrollView vertical={true} style={stil.ekran}>
+      <View>
+        <Image style={stil.slika} source={require('../assets/kafici.PNG')} />
       </View>
-    </View>
+
+      <View>
+        <Text style={stil.upute_naslov}>{'UPUTE: '}</Text>
+        <Text style={stil.upute_tekst}>
+          {
+            'Ako želiš pronaći posao u kafiću ili ako želiš ponuditi posao u kafiću koji nitko neće moći odbiti onda je ovo stranica za tebe!!!'
+          }
+        </Text>
+      </View>
+
+      <View style={stil.tipke}>
+        <Tipka
+          title="Pregled svih ponuda"
+          onPress={() => navigation.navigate('Pregled ponuda')}
+        />
+
+        <Tipka
+          title="Unos nove ponude"
+          onPress={() => navigation.navigate('Unos nove ponude')}
+        />
+      </View>
+    </ScrollView>
   );
 };
 
 const stil = StyleSheet.create({
   ekran: {
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  slika: {
+    width: 333,
+    height: 200,
+  },
+  tipke: {
     flex: 1,
+    flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -48,9 +60,6 @@ const stil = StyleSheet.create({
     padding: 20,
     fontSize: 18,
     textAlign: 'center',
-  },
-  tipke: {
-    flexDirection: 'row',
   },
 });
 
