@@ -22,3 +22,7 @@ Dodan alert prozor koji se pojavljuje kada se pokuša unijeti nepravilna ponuda.
 Napravljen dio koji se odnosi na favorite (napravljen ekran na kojemu se mogu vidjeti favoriti, napravljena mogućnost dodavanja ponuda u favorite, napravljena mogućnost uklananja ponuda iz favorita).
 Izbrisane nepotrebne slike iz assets i primjenjen Prettier na kod.
 
+## 16.03.2023. - 18.03.2023.
+### Kratki opis promjena
+Zaboravila sam koristiti redux pa sam ove dane radila prilagodbu aplikacije koristeći redux.
+
