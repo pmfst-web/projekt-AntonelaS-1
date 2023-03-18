@@ -1,29 +1,29 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TextInput } from 'react-native';
 
-import Kafic from '../model/kafic';
-import { KAFICI } from '../podatci/pocetni_podatci';
+import Ponuda from '../model/ponuda';
+import { PONUDE } from '../podaci/pocetni_podaci';
 
 import Tipka from '../components/Tipka';
 
 const Unos = () => {
   const [ime, postaviIme] = useState('');
-  const [grad, postaviGrad] = useState('');
-  const [satnica, postaviSatnicu] = useState(4.38);
   const [mjesto, postaviMjesto] = useState('');
+  const [satnica, postaviSatnicu] = useState(4.38);
+  const [pozicija, postaviPoziciju] = useState('');
   const [broj, postaviBroj] = useState(1);
 
   const changeIme = (tekst) => {
     postaviIme(tekst);
   };
-  const changeGrad = (tekst) => {
-    postaviGrad(tekst);
+  const changeMjesto = (tekst) => {
+    postaviMjesto(tekst);
   };
   const changeSatnicu = (tekst) => {
     postaviSatnicu(tekst);
   };
-  const changeMjesto = (tekst) => {
-    postaviMjesto(tekst);
+  const changePoziciju = (tekst) => {
+    postaviPoziciju(tekst);
   };
   const changeBroj = (tekst) => {
     postaviBroj(tekst);
@@ -32,19 +32,26 @@ const Unos = () => {
   const dodajNovi = () => {
     if (
       ime === '' ||
-      grad === '' ||
-      satnica < 4.38 ||
       mjesto === '' ||
+      satnica < 4.38 ||
+      pozicija === '' ||
       broj < 1
     ) {
-      return alert`Greška: Ime, grad i mjesto ne smiju biti prazni, satnica mora biti minimalno 4.38€ te broj traženih mjesta mora biti minimalno 1!!! Pokušajte ponovno!`;
+      return alert`Greška: Ime, mjesto i pozicija ne smiju biti prazni, satnica mora biti minimalno 4.38€ te broj traženih mjesta mora biti minimalno 1!!! Pokušajte ponovno!`;
     } else {
-      const novi = new Kafic(KAFICI.length, ime, grad, satnica, mjesto, broj);
-      KAFICI.push(novi);
+      const novi = new Ponuda(
+        PONUDE.length,
+        ime,
+        mjesto,
+        satnica,
+        pozicija,
+        broj
+      );
+      PONUDE.push(novi);
       postaviIme('');
-      postaviGrad('');
-      postaviSatnicu(4.38);
       postaviMjesto('');
+      postaviSatnicu(4.38);
+      postaviPoziciju('');
       postaviBroj(1);
     }
   };
@@ -58,7 +65,11 @@ const Unos = () => {
 
       <View>
         <Text style={{ color: 'black' }}>Grad:</Text>
-        <TextInput style={stil.tekst} value={grad} onChangeText={changeGrad} />
+        <TextInput
+          style={stil.tekst}
+          value={mjesto}
+          onChangeText={changeMjesto}
+        />
       </View>
 
       <View>
@@ -74,8 +85,8 @@ const Unos = () => {
         <Text style={{ color: 'black' }}>Djelatnost:</Text>
         <TextInput
           style={stil.tekst}
-          value={mjesto}
-          onChangeText={changeMjesto}
+          value={pozicija}
+          onChangeText={changePoziciju}
         />
       </View>
 
@@ -84,7 +95,7 @@ const Unos = () => {
         <TextInput style={stil.tekst} value={broj} onChangeText={changeBroj} />
       </View>
 
-      <Tipka onPress={dodajNovi}>Dodaj novu ponudu</Tipka>
+      <Tipka title="OK" onPress={dodajNovi} />
     </View>
   );
 };
@@ -109,7 +120,7 @@ const stil = StyleSheet.create({
     borderRadius: 5,
 
     textAlign: 'center',
-    marginVertical: 8,
+    marginVertical: 3,
   },
 });
 
