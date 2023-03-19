@@ -21,6 +21,7 @@ import Naslovna from './ekrani/Naslovna';
 import Pregled from './ekrani/Pregled';
 import Detalji from './ekrani/Detalji';
 import Unos from './ekrani/Unos';
+import Prijava from './ekrani/Prijava';
 
 const Stack = createNativeStackNavigator();
 
@@ -55,6 +56,13 @@ function App() {
     <Provider store={store}>
       <NavigationContainer>
         <Stack.Navigator>
+          <Stack.Screen
+            name="Stranica za prijavu"
+            component={Prijava}
+            options={{
+              title: 'Stranica za prijavu',
+            }}
+          />
           <Stack.Screen
             name="Naslovna stranica"
             component={Naslovna}
