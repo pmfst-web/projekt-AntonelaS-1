@@ -26,7 +26,9 @@ const Detalji = ({ route, navigation }) => {
 
   const obrisi = () => {
     if (ponuda.id in FAVORITI) {
-      alert`Ne možete izbrisati ovu ponudu jer Vam se nalazi u favoritima`;
+      alert`Ne možete izbrisati ovu ponudu jer Vam se nalazi u favoritima!`;
+    } else if (ponuda.broj > 0) {
+      alert`Ne možete izbrisati ovu ponudu jer je još aktivna!`;
     } else {
       PONUDE.pop(ponuda.id);
     }
@@ -44,56 +46,52 @@ const Detalji = ({ route, navigation }) => {
       <View style={stil.tablica}>
         <View>
           <View>
-            <Text>ID ponude je {ponuda.id}</Text>
+            <Text style={stil.opis}>1. ID ponude je</Text>
+            <Text style={stil.podaci}>{ponuda.id}</Text>
           </View>
         </View>
 
         <View>
           <View>
-            <Text>Ime kafića je {ponuda.ime}</Text>
+            <Text style={stil.opis}>2. Ime kafića je</Text>
+            <Text style={stil.podaci}>{ponuda.ime}</Text>
           </View>
         </View>
 
         <View>
           <View>
-            <Text>Mjesto u kojem se kafić nalazi je {ponuda.mjesto}</Text>
+            <Text style={stil.opis}>3. Mjesto u kojem se kafić nalazi je</Text>
+            <Text style={stil.podaci}>{ponuda.mjesto}</Text>
           </View>
         </View>
 
         <View>
           <View>
-            <Text>Satnica (h/euro) koja se nudi iznosi {ponuda.satnica}</Text>
+            <Text style={stil.opis}>
+              4. Satnica (h/euro) koja se nudi iznosi
+            </Text>
+            <Text style={stil.podaci}>{ponuda.satnica}</Text>
           </View>
         </View>
 
         <View>
           <View>
-            <Text>Pozicija koja se traži je {ponuda.pozicija}</Text>
+            <Text style={stil.opis}>5. Pozicija koja se traži je</Text>
+            <Text style={stil.podaci}>{ponuda.pozicija}</Text>
           </View>
         </View>
 
         <View>
           <View>
-            <Text>Broj traženih djelatnika je {ponuda.broj}</Text>
+            <Text style={stil.opis}>6. Broj traženih djelatnika je</Text>
+            <Text style={stil.podaci}>{ponuda.broj}</Text>
           </View>
         </View>
 
-        <View>
-          <View>
-            <Tipka title="Promjena favorita" onPress={akcijaFavorit} />
-          </View>
-        </View>
-
-        <View>
-          <View>
-            <Tipka title="Obriši ponudu" onPress={obrisi} />
-          </View>
-        </View>
-
-        <View>
-          <View>
-            <Tipka title="Uredi ponudu" onPress={uredi} />
-          </View>
+        <View style={stil.tipke}>
+          <Tipka title="Promjena favorita" onPress={akcijaFavorit} />
+          <Tipka style={stil.obrisi} title="Obriši ponudu" onPress={obrisi} />
+          <Tipka title="Uredi ponudu" onPress={uredi} />
         </View>
       </View>
     </View>
@@ -109,6 +107,22 @@ const stil = StyleSheet.create({
   tablica: {
     width: '80%',
     flex: 1,
+  },
+  opis: {
+    textAlign: 'center',
+    fontSize: 18,
+  },
+  podaci: {
+    fontWeight: 'bold',
+    textAlign: 'center',
+    fontSize: 18,
+  },
+  tipke: {
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  obrisi: {
+    backgroundColor: 'red',
   },
 });
 
