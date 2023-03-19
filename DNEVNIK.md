@@ -26,3 +26,6 @@ Izbrisane nepotrebne slike iz assets i primjenjen Prettier na kod.
 ### Kratki opis promjena
 Zaboravila sam koristiti redux pa sam ove dane radila prilagodbu aplikacije koristeći redux.
 
+## 19.03.2023.
+### Kratki opis promjena
+Dodana mogućnost uređivanja ponude i mogućnost brisanja ponude. Također, dodan je ekran za prijavu korisnika (kada se korisnik ispravno prijavi aplikacija ga prebaci na naslovnu stranicu te tada može koristiti ostatak aplikacije).
