@@ -15,7 +15,7 @@ const Prijava = ({ navigation }) => {
   };
 
   const prijava = () => {
-    if (KorIme != 'asikavica@pmfst.hr' && KorSifra != 'PROMA') {
+    if (KorIme != 'asikavica@pmfst.hr' || KorSifra != 'PROMA') {
       postaviKorIme('');
       postaviKorSifru('');
       alert`Greška: Neispravno korisničko ime i/ili lozinka! Pokušajte ponovno!`;
