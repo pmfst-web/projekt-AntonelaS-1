@@ -43,6 +43,7 @@ const Prijava = ({ navigation }) => {
       <View>
         <Text style={{ color: 'black' }}>LOZINKA:</Text>
         <TextInput
+          secureTextEntry
           style={stil.tekst}
           value={KorSifra}
           onChangeText={changeKorSifr}
