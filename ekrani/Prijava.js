@@ -50,7 +50,7 @@ const Prijava = ({ navigation }) => {
         />
       </View>
 
-      <Tipka title="PRIJAVA" onPress={prijava} />
+      <Tipka style={stil.tipka} title="PRIJAVA" onPress={prijava} />
     </View>
   );
 };
@@ -80,6 +80,9 @@ const stil = StyleSheet.create({
   slika: {
     width: 100,
     height: 100,
+  },
+  tipka: {
+    backgroundColor: 'green',
   },
 });
 
