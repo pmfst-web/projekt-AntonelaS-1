@@ -88,9 +88,12 @@ const Detalji = ({ route, navigation }) => {
           </View>
         </View>
 
-        <View style={stil.tipke}>
+        <View style={stil.tipka}>
           <Tipka title="Promjena favorita" onPress={akcijaFavorit} />
-          <Tipka style={stil.obrisi} title="Obriši ponudu" onPress={obrisi} />
+        </View>
+
+        <View style={stil.tipke}>
+          <Tipka title="Obriši ponudu" onPress={obrisi} />
           <Tipka title="Uredi ponudu" onPress={uredi} />
         </View>
       </View>
@@ -117,12 +120,14 @@ const stil = StyleSheet.create({
     textAlign: 'center',
     fontSize: 18,
   },
-  tipke: {
+  tipka: {
     alignItems: 'center',
     justifyContent: 'center',
   },
-  obrisi: {
-    backgroundColor: 'red',
+  tipke: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexDirection: 'row',
   },
 });
 
