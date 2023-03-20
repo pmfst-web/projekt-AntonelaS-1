@@ -75,6 +75,7 @@ const Unos = () => {
       <View>
         <Text style={{ color: 'black' }}>Satnica:</Text>
         <TextInput
+          keyboardType="numeric"
           style={stil.tekst}
           value={satnica}
           onChangeText={changeSatnicu}
@@ -92,10 +93,15 @@ const Unos = () => {
 
       <View>
         <Text style={{ color: 'black' }}>Broj potrebnih djelatnika(ica):</Text>
-        <TextInput style={stil.tekst} value={broj} onChangeText={changeBroj} />
+        <TextInput
+          keyboardType="numeric"
+          style={stil.tekst}
+          value={broj}
+          onChangeText={changeBroj}
+        />
       </View>
 
-      <Tipka title="OK" onPress={dodajNovi} />
+      <Tipka style={stil.tipka} title="OK" onPress={dodajNovi} />
     </View>
   );
 };
@@ -121,6 +127,9 @@ const stil = StyleSheet.create({
 
     textAlign: 'center',
     marginVertical: 3,
+  },
+  tipka: {
+    backgroundColor: 'green',
   },
 });
 
