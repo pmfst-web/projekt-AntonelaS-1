@@ -30,6 +30,10 @@ Zaboravila sam koristiti redux pa sam ove dane radila prilagodbu aplikacije kori
 ### Kratki opis promjena
 Dodana mogućnost uređivanja ponude i mogućnost brisanja ponude. Također, dodan je ekran za prijavu korisnika (kada se korisnik ispravno prijavi aplikacija ga prebaci na naslovnu stranicu te tada može koristiti ostatak aplikacije).
 
+## 27.03.2023.
+### Kratki opis promjena
+Odrađene konzultacije.
+
 ## 20.03.2023.
 ### Kratki opis promjena
 Uređen ispis detalja ponuda, uređene tipke (za brisanje, mijenjanje favorita i uređivanje) te promijenjen uvjet pri pokušaju brisanja ponude.
