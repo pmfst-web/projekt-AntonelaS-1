@@ -2,8 +2,8 @@
 - [x] - Opis projekta
 - [x] - Početna struktura aplikacije
 - [x] - Prototip
-- [ ] - Konzultacije
-- [ ] - Finalna verzija
+- [x] - Konzultacije
+- [x] - Finalna verzija
 - [ ] - Obrana projekta
 
 # Opis projekta
@@ -30,6 +30,7 @@ U ovoj fazi bi trebali imati "grubu" verziju svoje aplikacije. Ova verzija bi tr
 
 ## Konzultacije
 Nakon izrade prototipa potrebno se javiti nastavniku za termin konzultacija. Na konzultacijama ćete ukratko pokazati svoj prototip te će se po potrebi napraviti modifikacija početnih zahtjeva. Dovršeni projekti bez ove faze neće biti prihvaćeni.
+Odrađeno 27.03.2023.
 
 ## Finalna verzija
 Nakon demonstracije prototipa možete nastaviti sa razvojem aplikacije i implementacijom svih funkcionalnosti. Prilikom razvoja potrebno je voditi dnevnik aktivnosti prema zadanim uputama.
