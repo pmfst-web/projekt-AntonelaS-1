@@ -26,7 +26,7 @@ const Unos = () => {
     postaviPoziciju(tekst);
   };
   const changeBroj = (tekst) => {
-    postaviBroj(tekst);
+    postaviBroj(tekst.replace(/[^0-9]/g, ''));
   };
 
   const dodajNovi = () => {
