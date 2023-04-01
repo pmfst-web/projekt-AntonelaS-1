@@ -2,7 +2,7 @@ import React, { useCallback, useEffect } from 'react';
 
 import { useSelector, useDispatch } from 'react-redux';
 
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Alert } from 'react-native';
 
 import { promjenaFavorita } from '../store/actions/ponude';
 
@@ -26,9 +26,15 @@ const Detalji = ({ route, navigation }) => {
 
   const obrisi = () => {
     if (ponuda.id in FAVORITI) {
-      alert`Ne možete izbrisati ovu ponudu jer Vam se nalazi u favoritima!`;
+      Alert.alert(
+        'Pogreška!',
+        'Ne možete izbrisati ovu ponudu jer Vam se nalazi u favoritima!'
+      );
     } else if (ponuda.broj > 0) {
-      alert`Ne možete izbrisati ovu ponudu jer je još aktivna!`;
+      Alert.alert(
+        'Pogreška!',
+        'Ne možete izbrisati ovu ponudu jer je još aktivna!'
+      );
     } else {
       PONUDE.pop(ponuda.id);
     }
