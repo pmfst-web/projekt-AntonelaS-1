@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TextInput } from 'react-native';
+import { View, Text, StyleSheet, TextInput, Alert } from 'react-native';
 
 import Ponuda from '../model/ponuda';
 import { PONUDE } from '../podaci/pocetni_podaci';
@@ -37,7 +37,10 @@ const Unos = () => {
       pozicija === '' ||
       broj < 1
     ) {
-      return alert`Greška: Ime, mjesto i pozicija ne smiju biti prazni, satnica mora biti minimalno 4.38€ te broj traženih mjesta mora biti minimalno 1!!! Pokušajte ponovno!`;
+      return Alert.alert(
+        'Pogreška!',
+        'Ime, mjesto i pozicija ne smiju biti prazni, satnica mora biti minimalno 4.38€ te broj traženih mjesta mora biti minimalno 1!!! Pokušajte ponovno!'
+      );
     } else {
       const novi = new Ponuda(
         PONUDE.length,
