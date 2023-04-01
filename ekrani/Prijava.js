@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, TextInput, Image, Alert } from 'react-native';
 
 import Tipka from '../components/Tipka';
@@ -7,6 +7,10 @@ const Prijava = ({ navigation }) => {
   const [KorIme, postaviKorIme] = useState('');
   const [KorSifra, postaviKorSifru] = useState('');
 
+  useEffect(() => {
+    console.log('Ekran za prijavu se renderirao');
+  });
+  
   const changeKorIme = (tekst) => {
     postaviKorIme(tekst);
   };
