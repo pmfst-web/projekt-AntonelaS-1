@@ -37,3 +37,7 @@ Uređen ispis detalja ponuda, uređene tipke (za brisanje, mijenjanje favorita i
 ## 27.03.2023.
 ### Kratki opis promjena
 Odrađene konzultacije.
+
+## 01.04.2023.
+### Kratki opis promjena
+Napravljene manje promjene u projektu (npr. alert prozor implementiran za mobilnu verziju, a ne za web verziju).
