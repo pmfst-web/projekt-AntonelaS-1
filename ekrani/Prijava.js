@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TextInput, Image } from 'react-native';
+import { View, Text, StyleSheet, TextInput, Image, Alert } from 'react-native';
 
 import Tipka from '../components/Tipka';
 
@@ -18,9 +18,12 @@ const Prijava = ({ navigation }) => {
     if (KorIme != 'asikavica@pmfst.hr' || KorSifra != 'PROMA') {
       postaviKorIme('');
       postaviKorSifru('');
-      alert`Greška: Neispravno korisničko ime i/ili lozinka! Pokušajte ponovno!`;
+      Alert.alert(
+        'Pogreška!',
+        'Neispravno korisničko ime i/ili lozinka! Pokušajte ponovno!'
+      );
     } else {
-      alert`Prijavili ste se uspješno!`;
+      Alert.alert("Obavijest","Prijavili ste se uspješno!");
       navigation.navigate('Naslovna stranica');
     }
   };
