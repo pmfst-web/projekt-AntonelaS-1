@@ -7,7 +7,11 @@ const Naslovna = ({ navigation }) => {
   return (
     <ScrollView vertical={true} style={stil.ekran}>
       <View>
-        <Image style={stil.slika} source={require('../assets/kafici.PNG')} />
+        <Image
+          resizeMode="contain"
+          style={stil.slika}
+          source={require('../assets/kafici.PNG')}
+        />
       </View>
 
       <View>
@@ -40,14 +44,13 @@ const stil = StyleSheet.create({
     justifyContent: 'center',
   },
   slika: {
-    width: 333,
+    width: '100%',
     height: 200,
   },
   tipke: {
     flex: 1,
     flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'center', //poravnanje elemenata
   },
   upute_naslov: {
     color: 'black',
