@@ -1,5 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, TextInput, Image, Alert } from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  TextInput,
+  Image,
+  Alert,
+  ScrollView,
+} from 'react-native';
 
 import Tipka from '../components/Tipka';
 
@@ -10,7 +18,7 @@ const Prijava = ({ navigation }) => {
   useEffect(() => {
     console.log('Ekran za prijavu se renderirao');
   });
-  
+
   const changeKorIme = (tekst) => {
     postaviKorIme(tekst);
   };
@@ -27,42 +35,51 @@ const Prijava = ({ navigation }) => {
         'Neispravno korisničko ime i/ili lozinka! Pokušajte ponovno!'
       );
     } else {
-      Alert.alert("Obavijest","Prijavili ste se uspješno!");
+      Alert.alert('Obavijest', 'Prijavili ste se uspješno!');
       navigation.navigate('Naslovna stranica');
     }
   };
 
   return (
-    <View style={stil.ekran}>
-      <View>
-        <Image style={stil.slika} source={require('../assets/login.png')} />
-      </View>
+    <ScrollView vertical={true} style={stil.pocetak}>
+      <View style={stil.ekran}>
+        <View>
+          <Image
+            resizeMode="contain"
+            style={stil.slika}
+            source={require('../assets/login.png')}
+          />
+        </View>
 
-      <View>
-        <Text style={{ color: 'black' }}>KORISNIČKO IME:</Text>
-        <TextInput
-          style={stil.tekst}
-          value={KorIme}
-          onChangeText={changeKorIme}
-        />
-      </View>
+        <View>
+          <Text style={{ color: 'black' }}>KORISNIČKO IME:</Text>
+          <TextInput
+            style={stil.tekst}
+            value={KorIme}
+            onChangeText={changeKorIme}
+          />
+        </View>
 
-      <View>
-        <Text style={{ color: 'black' }}>LOZINKA:</Text>
-        <TextInput
-          secureTextEntry
-          style={stil.tekst}
-          value={KorSifra}
-          onChangeText={changeKorSifr}
-        />
-      </View>
+        <View>
+          <Text style={{ color: 'black' }}>LOZINKA:</Text>
+          <TextInput
+            secureTextEntry
+            style={stil.tekst}
+            value={KorSifra}
+            onChangeText={changeKorSifr}
+          />
+        </View>
 
-      <Tipka style={stil.tipka} title="PRIJAVA" onPress={prijava} />
-    </View>
+        <Tipka style={stil.tipka} title="PRIJAVA" onPress={prijava} />
+      </View>
+    </ScrollView>
   );
 };
 
 const stil = StyleSheet.create({
+  pocetak: {
+    padding: 70,
+  },
   ekran: {
     flex: 1,
     alignItems: 'center',
