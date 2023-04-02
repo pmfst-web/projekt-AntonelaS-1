@@ -41,3 +41,7 @@ Odrađene konzultacije.
 ## 01.04.2023.
 ### Kratki opis promjena
 Napravljene manje promjene u projektu (npr. alert prozor implementiran za mobilnu verziju, a ne za web verziju).
+
+## 02.04.2023.
+### Kratki opis promjena
+Finalna verzija projekta.
