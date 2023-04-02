@@ -1,5 +1,12 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TextInput, Alert } from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  TextInput,
+  Alert,
+  ScrollView,
+} from 'react-native';
 
 import Ponuda from '../model/ponuda';
 import { PONUDE } from '../podaci/pocetni_podaci';
@@ -60,56 +67,63 @@ const Unos = () => {
   };
 
   return (
-    <View style={stil.ekran}>
-      <View>
-        <Text style={{ color: 'black' }}>Ime kafića:</Text>
-        <TextInput style={stil.tekst} value={ime} onChangeText={changeIme} />
-      </View>
+    <ScrollView vertical={true} style={stil.pocetak}>
+      <View style={stil.ekran}>
+        <View>
+          <Text style={{ color: 'black' }}>Ime kafića:</Text>
+          <TextInput style={stil.tekst} value={ime} onChangeText={changeIme} />
+        </View>
 
-      <View>
-        <Text style={{ color: 'black' }}>Grad:</Text>
-        <TextInput
-          style={stil.tekst}
-          value={mjesto}
-          onChangeText={changeMjesto}
-        />
-      </View>
+        <View>
+          <Text style={{ color: 'black' }}>Grad:</Text>
+          <TextInput
+            style={stil.tekst}
+            value={mjesto}
+            onChangeText={changeMjesto}
+          />
+        </View>
 
-      <View>
-        <Text style={{ color: 'black' }}>Satnica:</Text>
-        <TextInput
-          keyboardType="numeric"
-          style={stil.tekst}
-          value={satnica}
-          onChangeText={changeSatnicu}
-        />
-      </View>
+        <View>
+          <Text style={{ color: 'black' }}>Satnica:</Text>
+          <TextInput
+            keyboardType="numeric"
+            style={stil.tekst}
+            value={satnica}
+            onChangeText={changeSatnicu}
+          />
+        </View>
 
-      <View>
-        <Text style={{ color: 'black' }}>Djelatnost:</Text>
-        <TextInput
-          style={stil.tekst}
-          value={pozicija}
-          onChangeText={changePoziciju}
-        />
-      </View>
+        <View>
+          <Text style={{ color: 'black' }}>Djelatnost:</Text>
+          <TextInput
+            style={stil.tekst}
+            value={pozicija}
+            onChangeText={changePoziciju}
+          />
+        </View>
 
-      <View>
-        <Text style={{ color: 'black' }}>Broj potrebnih djelatnika(ica):</Text>
-        <TextInput
-          keyboardType="numeric"
-          style={stil.tekst}
-          value={broj}
-          onChangeText={changeBroj}
-        />
-      </View>
+        <View>
+          <Text style={{ color: 'black' }}>
+            Broj potrebnih djelatnika(ica):
+          </Text>
+          <TextInput
+            keyboardType="numeric"
+            style={stil.tekst}
+            value={broj}
+            onChangeText={changeBroj}
+          />
+        </View>
 
-      <Tipka style={stil.tipka} title="OK" onPress={dodajNovi} />
-    </View>
+        <Tipka style={stil.tipka} title="OK" onPress={dodajNovi} />
+      </View>
+    </ScrollView>
   );
 };
 
 const stil = StyleSheet.create({
+  pocetak: {
+    padding: 70,
+  },
   ekran: {
     flex: 1,
     alignItems: 'center',
