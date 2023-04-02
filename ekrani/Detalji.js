@@ -128,11 +128,8 @@ const stil = StyleSheet.create({
   },
   tipka: {
     alignItems: 'center',
-    justifyContent: 'center',
   },
   tipke: {
-    alignItems: 'center',
-    justifyContent: 'center',
     flexDirection: 'row',
   },
 });
